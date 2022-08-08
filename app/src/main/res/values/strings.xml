@@ -4,4 +4,5 @@
     <string name="content_hint">Content</string>
     <string name="send_button_label">Send</string>
     <string name="persistent_switch_label">Persistent ?</string>
+    <string name="extra_key_notifID" translatable="false">notifID</string>
 </resources>

@@ -18,7 +18,7 @@ import androidx.core.app.NotificationManagerCompat
 
 class MainActivity : AppCompatActivity() {
     private val channelId = "Channel ID"
-    private val channelName = "Notification Remainder"
+    private val channelName = "Notification Reminder"
 
     private var notifId: Int = 1
 
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     private fun sendNotif(title: String, content: String, isPersistent: Boolean = false) {
         val builder = NotificationCompat.Builder(this, createNotificationChannel())
             .setContentTitle(title)
-            .setContentText("$notifId: content")
+            .setContentText(content)
             .setStyle(
                 NotificationCompat.BigTextStyle()
                     .bigText(content)
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
         if (isPersistent) {
             val dismissIntent: Intent = Intent(this, DismissNotificationReceiver::class.java).apply {
-                putExtra("notifID", notifId)
+                putExtra(getString(R.string.extra_key_notifID), notifId)
             }
 
             val flags =

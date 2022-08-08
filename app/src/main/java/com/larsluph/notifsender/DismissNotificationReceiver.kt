@@ -9,7 +9,7 @@ class DismissNotificationReceiver : BroadcastReceiver() {
 
     // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
     override fun onReceive(context: Context, intent: Intent) {
-        val notifId = intent.extras!!.getInt("notifID")
+        val notifId = intent.extras!!.getInt(context.getString(R.string.extra_key_notifID))
         with(NotificationManagerCompat.from(context)) {
             cancel(notifId)
         }
